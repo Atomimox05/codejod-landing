@@ -1,0 +1,33 @@
+---
+const theme = {
+    light: "🌞",
+    dark: "🌙",
+};
+---
+
+<button
+    id="theme-toggle"
+    type="button"
+    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5"
+>
+    {theme.light}
+</button>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme") || "light";
+
+        if (currentTheme === "dark") {
+            document.documentElement.classList.add("dark");
+            themeToggle.textContent = "🌙";
+        }
+
+        themeToggle.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+            themeToggle.textContent = isDark ? "🌙" : "🌞";
+        });
+    });
+</script>
