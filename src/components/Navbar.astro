@@ -2,7 +2,7 @@
  import DarkModeToggle from "./DarkModeToggle.astro"
 ---
 
-<nav class="bg-white border-gray-200 dark:bg-gray-950/50 p-4 border-b dark:border-gray-700">
+<nav class="bg-white/50 border-gray-200 dark:bg-gray-950/50 p-4 border-b dark:border-gray-700 backdrop-blur-sm">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img
@@ -14,8 +14,9 @@
         <div class="flex gap-3 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
                 type="button"
-                class="text-white bg-gradient-to-br from-sky-500 to-blue-700 transition duration-400 ease-in-out hover:from-sky-400 hover:to-blue-600 focus:ring-2 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                >Tienda online
+                class="text-white bg-gradient-to-br from-sky-500 to-blue-700 transition duration-400 ease-in-out hover:from-sky-400 hover:to-blue-600 focus:ring-2 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-500 font-medium rounded-b-lg rounded-l-lg text-sm px-5 py-2.5 text-center"
+                >
+                Tienda online
             </button>
             <DarkModeToggle />
             <button
@@ -57,14 +58,14 @@
                     <a
                         href="#"
                         class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                        >Portafolio</a
+                        >Servicios</a
                     >
                 </li>
                 <li>
                     <a
                         href="#"
                         class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                        >Servicios</a
+                        >Portafolio</a
                     >
                 </li>
                 <li>

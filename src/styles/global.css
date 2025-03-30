@@ -4,3 +4,12 @@
 @source "../../node_modules/flowbite";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('/fonts/Montserrat-Regular.woff2') format('woff2'),
+         url('/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Mejora la percepción de rendimiento */
+  }
