@@ -4,13 +4,13 @@ import Navbar from '../components/Navbar.astro';
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>CODEJOD</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<script>
+		<!-- <script>
 			// This is for the dark mode toggle
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -18,10 +18,10 @@ import Navbar from '../components/Navbar.astro';
 			} else {
 				document.documentElement.classList.remove('dark')
 			}
-		</script>
+		</script> -->
 	</head>
-	<body class="bg-white dark:bg-gray-900 transition duration-200">
-		<main class="bg-[url('/img/background.svg')] bg-cover bg-center h-screen">
+	<body>
+		<main class="bg-[url('/img/background.svg')] bg-cover bg-center bg-fixed">
 			<header>
 				<Navbar />
 			</header>

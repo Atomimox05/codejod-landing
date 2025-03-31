@@ -3,7 +3,7 @@
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* @custom-variant dark (&:where(.dark, .dark *)); */
 
 @font-face {
     font-family: 'Montserrat-Regular';
