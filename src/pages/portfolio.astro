@@ -1,5 +1,113 @@
 ---
+    import PortfolioItems from '../components/PortfolioItems.astro';
 
+    const Proyectos = [
+        {
+            id: 1,
+            title: "Gestor de tareas administrativas",
+            description: "Una PWA creada con el objetivo de asignar, visualizar y gestionar tareas de una empresa. Así como controlar la efectividad de los trabajos realizados.",
+            img: [
+
+            ],
+            front: {
+                github: "",
+                tech: [
+                    
+                ]
+            },
+            back: {
+                github: "https://github.com/OscarLugo60/work_app.git",
+                tech: [
+                    'Python', 'Django', 'MySQL'
+                ]
+            },
+            link: ''
+        },
+        {
+            id: 2,
+            title: "Sistema de control de cirugías",
+            description: "Una herramienta digital que permite a los organismos de salud gestionar sus procedimientos quirúrgicos. El sistema registra fecha, hora, médico encargado y quirófano para cada cirugía. Esto ayuda a garantizar que las cirugías se realicen ordenadamente, lo que mejora la seguridad del paciente.",
+            img: [
+                
+            ],
+            front: {
+                github: "",
+                tech: [
+                    'JavaScript', 'Bootstrap', 'Vue'
+                ]
+            },
+            back: {
+                github: "https://github.com/OscarLugo60/Cirugias",
+                tech: [
+                    'Python', 'Django', 'JavaScript', 'PostgreSQL', 'Nginx'
+                ]
+            },
+            link: ''
+        },
+        {
+            id: 3,
+            title: "Sistema de atención al paciente",
+            description: "Una aplicación diseñada para mejorar la comunicación entre pacientes, méidicos y equipos administrativos. A través de esta herramienta, los pacientes podrán reportar en tiempo real su satisfacción con servicios como atención de enfermería, trato médico o estado de las habitaciones, garantizando que cada solicitud sea gestionada inmediatamente.",
+            img: [
+                
+            ],
+            front: {
+                github: "",
+                tech: [
+                    
+                ]
+            },
+            back: {
+                github: "",
+                tech: [
+                    
+                ]
+            },
+            link: ''
+        },
+        {
+            id: 4,
+            title: "Páginas web Grupo El Paso",
+            description: "Páginas web creadas para las clínicas Centro Médico Docente el Paso y Policlínica Altos Mirandinos, que incluyen buscador y listado médico.",
+            img: [
+                
+            ],
+            front: {
+                github: "",
+                tech: [
+                    'JavaScript', 'Astro', 'Tailwind CSS'
+                ]
+            },
+            back: {
+                github: "https://github.com/OscarLugo60/web-cmdep",
+                tech: [
+                    'Python', 'Django', 'PostgreSQL'
+                ]
+            },
+            link: ''
+        },
+        {
+            id: 5,
+            title: "Sistema de control de inventario",
+            description: "Un sistema diseñado para gestionar el inventario de una empresa. Permite registrar productos, manejar precios de compra y venta, controlar existencias y generar informes de entrada y salida.",
+            img: [
+                
+            ],
+            front: {
+                github: "",
+                tech: [
+                    
+                ]
+            },
+            back: {
+                github: "",
+                tech: [
+                    
+                ]
+            },
+            link: ''
+        }
+    ]
 ---
 
 <section id="portfolio">
@@ -8,32 +116,23 @@
             Portafolio
         </h2>
     </div>
-    <div class="p-8 mx-auto max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div>
-            
-        </div>
-        <div>
-            <ol class="relative border-s border-cyan-800">                  
-                <li class="mb-10 ms-6">            
+    <div class="p-8 lg:p-4 mx-auto max-w-screen-xl grid grid-cols-1 items-center lg:grid-cols-2 gap-4">
+        <img 
+            class="h-full hidden lg:block w-screen object-cover" 
+            src="/img/man-portfolio.webp" 
+            alt="Portafolio profesional"
+            loading="lazy"
+        >
+        <div class="">
+            <ol class="relative border-s border-cyan-800/30">                  
+                {Proyectos.map((item) => (
+                    <li class="mb-10 ms-6 list-none">            
+                        <PortfolioItems {... item} />
+                    </li>
+                ))}
+                <li class="ms-6 list-none">
                     <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-800 rounded-full -start-3"></span>
-                    <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Aplicación de tareas administrativas</h3>
-                    <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Una PWA creada con el objetivo de asignar, visualizar y gestionar tareas de una empresa. Así como controlar la efectividad de los trabajos realizados.</p>
-                    <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">GitHub</button>
-                </li>
-                <li class="mb-10 ms-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-800 rounded-full -start-3"></span>
-                    <h3 class="mb-1 text-lg font-semibold text-gray-900">Flowbite Figma v1.3.0</h3>
-                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p>
-                </li>
-                <li class="ms-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                        <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                        </svg>
-                    </span>
-                    <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">Flowbite Library v1.2.2</h3>
-                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Released on December 2nd, 2021</time>
-                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</p>
+                    <h3 class="mb-1 text-lg font-semibold text-gray-900">¡Y más proyectos en desarrollo!</h3>
                 </li>
             </ol>
         </div>
