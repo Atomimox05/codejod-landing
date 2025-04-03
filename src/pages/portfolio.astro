@@ -1,111 +1,61 @@
 ---
     import PortfolioItems from '../components/PortfolioItems.astro';
 
-    const Proyectos = [
+    const Proyects = [
         {
             id: 1,
             title: "Gestor de tareas administrativas",
             description: "Una PWA creada con el objetivo de asignar, visualizar y gestionar tareas de una empresa. Así como controlar la efectividad de los trabajos realizados.",
             img: [
-
+                ''
             ],
-            front: {
-                github: "",
-                tech: [
-                    
-                ]
-            },
-            back: {
-                github: "https://github.com/OscarLugo60/work_app.git",
-                tech: [
-                    'Python', 'Django', 'MySQL'
-                ]
-            },
-            link: ''
+            tech: [
+                'Python', 'Django', 'MySQL', 'Javascript', 'Svelte', 'Tailwind CSS'
+            ]
         },
         {
             id: 2,
             title: "Sistema de control de cirugías",
             description: "Una herramienta digital que permite a los organismos de salud gestionar sus procedimientos quirúrgicos. El sistema registra fecha, hora, médico encargado y quirófano para cada cirugía. Esto ayuda a garantizar que las cirugías se realicen ordenadamente, lo que mejora la seguridad del paciente.",
             img: [
-                
+                ''
             ],
-            front: {
-                github: "",
-                tech: [
-                    'JavaScript', 'Bootstrap', 'Vue'
-                ]
-            },
-            back: {
-                github: "https://github.com/OscarLugo60/Cirugias",
-                tech: [
-                    'Python', 'Django', 'JavaScript', 'PostgreSQL', 'Nginx'
-                ]
-            },
-            link: ''
+            tech: [
+                'Python', 'Django', 'JavaScript', 'PostgreSQL', 'Javascript', 'Vue', 'Bootstrap'
+            ]
         },
         {
             id: 3,
             title: "Sistema de atención al paciente",
             description: "Una aplicación diseñada para mejorar la comunicación entre pacientes, méidicos y equipos administrativos. A través de esta herramienta, los pacientes podrán reportar en tiempo real su satisfacción con servicios como atención de enfermería, trato médico o estado de las habitaciones, garantizando que cada solicitud sea gestionada inmediatamente.",
             img: [
-                
+                ''
             ],
-            front: {
-                github: "",
-                tech: [
-                    
-                ]
-            },
-            back: {
-                github: "",
-                tech: [
-                    
-                ]
-            },
-            link: ''
+            tech: [
+                'Python', 'Django', 'PostgreSQL', 'JavaScript', 'Astro', 'Tailwind CSS'
+            ]
         },
         {
             id: 4,
             title: "Páginas web Grupo El Paso",
             description: "Páginas web creadas para las clínicas Centro Médico Docente el Paso y Policlínica Altos Mirandinos, que incluyen buscador y listado médico.",
             img: [
-                
+                ''
             ],
-            front: {
-                github: "",
-                tech: [
-                    'JavaScript', 'Astro', 'Tailwind CSS'
-                ]
-            },
-            back: {
-                github: "https://github.com/OscarLugo60/web-cmdep",
-                tech: [
-                    'Python', 'Django', 'PostgreSQL'
-                ]
-            },
-            link: ''
+            tech: [
+                'Python', 'Django', 'PostgreSQL', 'JavaScript', 'Astro', 'Tailwind CSS'
+            ]
         },
         {
             id: 5,
             title: "Sistema de control de inventario",
             description: "Un sistema diseñado para gestionar el inventario de una empresa. Permite registrar productos, manejar precios de compra y venta, controlar existencias y generar informes de entrada y salida.",
             img: [
-                
+                ''
             ],
-            front: {
-                github: "",
-                tech: [
-                    
-                ]
-            },
-            back: {
-                github: "",
-                tech: [
-                    
-                ]
-            },
-            link: ''
+            tech: [
+                'Python', 'Django', 'PostgreSQL', 'Javascript', 'Svelte', 'Bootstrap'
+            ]
         }
     ]
 ---
@@ -125,7 +75,7 @@
         >
         <div class="">
             <ol class="relative border-s border-cyan-800/30">                  
-                {Proyectos.map((item) => (
+                {Proyects.map((item) => (
                     <li class="mb-10 ms-6 list-none">            
                         <PortfolioItems {... item} />
                     </li>

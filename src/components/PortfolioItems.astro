@@ -1,26 +1,13 @@
 ---
-    import GitHubIcon from './icons/GitHubIcon.astro';
-    import PythonIcon from './icons/PythonIcon.astro';
-
     interface Props {
         id: number;
         title: string;
         description: string;
         img: string[];
-        front: {
-            github?: string;
-            tech: string[];
-        };
-        back: {
-            github?: string;
-            tech: string[];
-        };
-        link?: string;
+        tech: string[];
     }
 
-    const { id, title, description, img, front, back, link } = Astro.props;
-
-    let i = 0;
+    const { id, title, description, img, tech } = Astro.props;
 ---
 
 <!-- Portfolio item -->
@@ -87,40 +74,14 @@
                 </div>
             </div>
             <div class="p-4 md:p-5 space-y-4">
-                <div class="grid grid-cols-2 items-center gap-4">
-                    <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                        <h5 class="mb-2 text-center font-bold tracking-tight text-gray-900">Backend</h5>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-                            {back.tech.map((item) => (
-                                <div class="flex items-center">
-                                    {item === "Python" ? <PythonIcon class="w-4 h-4 bg-sky-800" key={i++}/> : null}
-                                </div>
-                            ))}
+                <h6 class="text-center font-semibold text-gray-900">Tecnologías usadas</h6>
+                <div class="grid grid-cols-4 items-center justify-center gap-4 mx-auto">
+                    {tech.map((item) => (
+                        <div>
+                            <img class="h-12 w-12 bg-cover" src={"/svg/" + item + ".svg"} alt={item}>
                         </div>
-                        <a href={back.github} type="button" class="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-2 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
-                        <GitHubIcon class="w-5 h-5"/>
-                            <span class="text-sm ms-2">Ver en Github</span>
-                        </a>
-                    </div>
-                    <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                        <h5 class="mb-2 text-center font-bold tracking-tight text-gray-900">Frontend</h5>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-                            {front.tech.map((item) => (
-                                <div class="flex items-center">
-                                    
-                                </div>
-                            ))}
-                        </div>
-                        <a href={back.github} type="button" class="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-2 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
-                        <GitHubIcon class="w-5 h-5"/>
-                            <span class="text-sm ms-2">Ver en Github</span>
-                        </a>
-                    </div>
+                    ))}
                 </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="flex justify-end items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                <a href={link} type="button" target="_blank" class="button-primary">Visitar sitio</a>
             </div>
         </div>
     </div>
