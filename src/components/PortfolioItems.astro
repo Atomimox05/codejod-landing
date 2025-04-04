@@ -43,14 +43,14 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="p-4 md:p-5 space-y-4">
-                <div id="default-carousel" class="relative w-full" data-carousel="static">
+            <div class="p-4 md:p-5">
+                <div id="default-carousel" class="relative w-full" data-carousel="slide">
                     <!-- Carousel wrapper -->
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                         <!-- Items img -->
                         {img.map((item) => (
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src={item} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                <img src={item} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={item + id} loading="lazy" />
                             </div>
                         ))}
                     </div>
@@ -73,7 +73,7 @@
                     </button>
                 </div>
             </div>
-            <div class="p-4 md:p-5 space-y-4">
+            <div class="p-4 md:p-5">
                 <h6 class="text-center font-semibold text-gray-900">Tecnologías usadas</h6>
                 <div class="flex flex-wrap items-center justify-center gap-4 mx-auto">
                     {tech.map((item) => (
