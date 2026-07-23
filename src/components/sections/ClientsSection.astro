@@ -1,0 +1,57 @@
+---
+// Clientes o marcas destacadas (puedes reemplazar 'img' con la ruta real de tus logos)
+const clients = [
+  {
+    name: "Anramar Turismo y Recreación C.A.",
+    img: "/img/logos/anramar.png",
+    scale: "scale-100",
+  },
+  {
+    name: "Centro Médico Docente El Paso C.A.",
+    img: "/img/logos/cmdep.png",
+    scale: "scale-100",
+  },
+  {
+    name: "Diagnosticos y Servicios Los Teques C.A.",
+    img: "/img/logos/dslt.png",
+    scale: "scale-120",
+  },
+  {
+    name: "Policlínica Altos Mirandinos C.A.",
+    img: "/img/logos/pam.png",
+    scale: "scale-175",
+  },
+];
+---
+
+<section
+  id="clients"
+  class="py-12 bg-white/50 backdrop-blur-sm rounded-3xl border border-gray-100 shadow-sm mb-12"
+>
+  <div class="max-w-screen-xl mx-auto px-4 lg:px-8">
+    <h2
+      class="text-4xl text-sky-950 uppercase text-center font-extrabold leading-10 tracking-wide"
+    >
+      Empresas que confían en nosotros
+    </h2>
+    <div
+      class="flex flex-wrap justify-center items-center gap-8 md:gap-16 lg:gap-24 mt-12"
+    >
+      {
+        clients.map((client) => (
+          <div class="flex items-center gap-3 text-gray-400 hover:text-sky-800 transition-colors duration-300 group cursor-default">
+            {/* Contenedor con tamaño fijo para estandarizar proporciones */}
+            <div class="relative w-42 h-16 flex items-center justify-center">
+              <img
+                src={client.img}
+                alt={client.name}
+                class={`absolute inset-0 w-full h-full object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 z-10 ${client.scale || ""}`}
+                onerror="this.style.opacity='0'; this.nextElementSibling.style.opacity='1';"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

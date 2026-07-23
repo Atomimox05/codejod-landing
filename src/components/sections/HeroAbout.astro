@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section id="about" transition:name="about">
+  <div
+    class="py-12 px-8 mx-auto max-w-screen-xl grid md:grid-cols-2 gap-4 lg:py-16"
+  >
+    <div class="content-center">
+      <h1 class="text-4xl font-extrabold leading-10 tracking-wide mb-6">
+        <span
+          class="text-transparent me-2 bg-clip-text bg-gradient-to-r from-sky-400 to-blue-800 text-5xl"
+          >CODEJOD
+        </span>
+        La tecnología que te ayuda a crecer
+      </h1>
+      <h5 class="text-lg font-bold mb-6">
+        ¿Quieres crear una aplicación web o móvil que sea exitosa?
+      </h5>
+      <p class="mb-3">
+        CODEJOD es una empresa de tecnología que se especializa en el desarrollo
+        de aplicaciones web, móviles y escritorio; usamos backend con Python,
+        Django y las últimas tecnologías en desarrollo frontend.
+      </p>
+      <p class="font-semibold">
+        Nuestro equipo de expertos te ayudará a llevar tu idea a la realidad,
+        con un enfoque en la calidad, la innovación y la satisfacción del
+        cliente.
+      </p>
+      <div class="mt-8">
+        <a
+          href="#services"
+          class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-sky-500 to-blue-700 rounded-lg hover:from-sky-600 hover:to-blue-800 focus:ring-4 focus:ring-blue-300 shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          Conoce nuestros servicios
+        </a>
+      </div>
+    </div>
+    <picture class="flex justify-center items-center">
+      <Image
+        src="/img/banner-codejod-landing.png"
+        alt="Tecnologías"
+        width={1000}
+        height={800}
+        class="w-full max-w-4xl object-contain drop-shadow-xl"
+        loading="eager"
+      />
+    </picture>
+  </div>
+
+  <!-- MISION VISION -->
+
+  <!-- PERSONAL -->
+</section>
