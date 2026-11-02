@@ -1,5 +1,6 @@
 ---
 const endpointform = "https://formspree.io/f/mzzejyyl";
+const whatsapp = "https://wa.me/584141111521";
 ---
 
 <section id="contact" transition:name="contact">
@@ -19,7 +20,12 @@ const endpointform = "https://formspree.io/f/mzzejyyl";
       <div
         class="w-full max-w-md p-4 bg-gray-100/75 backdrop-blur-sm border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8"
       >
-        <form class="space-y-6" method="POST" action={endpointform}>
+        <form
+          id="contact-form"
+          class="space-y-6"
+          method="POST"
+          action={endpointform}
+        >
           <div>
             <label
               for="email"
@@ -30,6 +36,8 @@ const endpointform = "https://formspree.io/f/mzzejyyl";
               type="email"
               name="email"
               id="email"
+              autocomplete="email"
+              maxlength="254"
               class="bg-gray-50/50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               placeholder="nombre@correo.com"
               required
@@ -45,6 +53,8 @@ const endpointform = "https://formspree.io/f/mzzejyyl";
               type="text"
               name="name"
               id="name"
+              autocomplete="name"
+              maxlength="120"
               placeholder="Mi negocio"
               class="bg-gray-50/50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               required
@@ -60,16 +70,93 @@ const endpointform = "https://formspree.io/f/mzzejyyl";
               id="message"
               name="comments"
               rows="4"
+              maxlength="2000"
+              required
               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50/50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Escribe tu mensaje aquí..."></textarea>
           </div>
+          <!-- Honeypot anti-spam: Formspree descarta los envíos que lo rellenan -->
+          <input
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            class="hidden"
+          />
           <button
             type="submit"
-            class="w-full text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            class="w-full text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-60 disabled:cursor-wait"
             >Enviar mensaje</button
           >
+          <p
+            id="contact-status"
+            class="hidden text-sm text-center"
+            role="status"
+            aria-live="polite"
+          >
+          </p>
         </form>
+        <div class="flex items-center gap-3 my-6 text-xs text-gray-500">
+          <span class="flex-1 h-px bg-gray-300"></span>
+          o si lo prefieres
+          <span class="flex-1 h-px bg-gray-300"></span>
+        </div>
+        <a
+          href={whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center gap-2 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5"
+        >
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Escríbenos por WhatsApp
+        </a>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const status = document.getElementById("contact-status") as HTMLElement;
+  const submit = form.querySelector("button[type=submit]") as HTMLButtonElement;
+
+  const showStatus = (message: string, ok: boolean) => {
+    status.textContent = message;
+    status.classList.remove("hidden", "text-green-700", "text-red-700");
+    status.classList.add(ok ? "text-green-700" : "text-red-700");
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    submit.disabled = true;
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      form.reset();
+      showStatus("¡Gracias! Recibimos tu mensaje y te responderemos pronto.", true);
+    } catch {
+      showStatus(
+        "No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.",
+        false,
+      );
+    } finally {
+      submit.disabled = false;
+    }
+  });
+</script>

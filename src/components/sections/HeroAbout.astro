@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import banner from "../../assets/banner-codejod-landing.png";
 ---
 
 <section id="about" transition:name="about">
@@ -14,9 +15,9 @@ import { Image } from "astro:assets";
         </span>
         La tecnología que te ayuda a crecer
       </h1>
-      <h5 class="text-lg font-bold mb-6">
+      <p class="text-lg font-bold mb-6">
         ¿Quieres crear una aplicación web o móvil que sea exitosa?
-      </h5>
+      </p>
       <p class="mb-3">
         CODEJOD es una empresa de tecnología que se especializa en el desarrollo
         de aplicaciones web, móviles y escritorio; usamos backend con Python,
@@ -36,16 +37,17 @@ import { Image } from "astro:assets";
         </a>
       </div>
     </div>
-    <picture class="flex justify-center items-center">
+    <div class="flex justify-center items-center">
       <Image
-        src="/img/banner-codejod-landing.png"
-        alt="Tecnologías"
-        width={1000}
-        height={800}
+        src={banner}
+        alt="Desarrollo de aplicaciones web y móviles con Python, Django y tecnologías frontend"
+        widths={[480, 800, 1200]}
+        sizes="(min-width: 768px) 50vw, 100vw"
         class="w-full max-w-4xl object-contain drop-shadow-xl"
         loading="eager"
+        fetchpriority="high"
       />
-    </picture>
+    </div>
   </div>
 
   <!-- MISION VISION -->

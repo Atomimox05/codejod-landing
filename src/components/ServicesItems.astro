@@ -3,20 +3,22 @@ interface Props {
     id: number,
     title: string,
     img: string,
-    alt?: string,
+    alt: string,
 }
 
 const { id, title, img, alt } = Astro.props;
 ---
 
 <div class="bg-white/25 backdrop-blur-sm border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-    <img class="w-full h-64 object-cover rounded-t-xl cursor-pointer hover:scale-105 transform transition-transform duration-300" 
+    <img class="w-full h-64 object-cover rounded-t-xl hover:scale-105 transform transition-transform duration-300" 
         src={img}
         alt={alt}
+        width="600"
+        height="400"
         loading="lazy" />
     <div class="p-6">
-        <h5 class="text-sm font-semibold text-gray-900 text-center">
+        <h3 class="text-sm font-semibold text-gray-900 text-center">
             {title}
-        </h5>
+        </h3>
     </div>
 </div>

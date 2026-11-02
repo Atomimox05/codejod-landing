@@ -2,26 +2,75 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "CODEJOD | Desarrollo web, apps y software a medida en Venezuela",
+  description = "CODEJOD desarrolla aplicaciones web, móviles y software a medida en Venezuela. También ofrecemos servidores, redes, soporte técnico y venta de equipos.",
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/img/og-codejod.jpg", Astro.site);
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "CODEJOD C.A.",
+  url: Astro.site?.href,
+  logo: new URL("/img/logo_codejod.png", Astro.site).href,
+  image: ogImage.href,
+  description,
+  taxID: "J-50350516-8",
+  telephone: "+58-414-1111521",
+  areaServed: "VE",
+  address: { "@type": "PostalAddress", addressCountry: "VE" },
+  sameAs: ["https://www.instagram.com/codejod/"],
+};
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>CODEJOD | Soluciones Tecnológicas</title>
-    <meta
-      name="description"
-      content="CODEJOD | Soluciones Tecnológicas en desarrollo web, móvil y software a medida."
-    />
-    <meta property="og:title" content="CODEJOD | Soluciones Tecnológicas" />
-    <meta
-      property="og:description"
-      content="CODEJOD | Soluciones Tecnológicas en desarrollo web, móvil y software a medida."
-    />
-    <meta property="og:image" content="/img/logo_codejod.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+    <meta name="theme-color" content="#0369a1" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_VE" />
+    <meta property="og:site_name" content="CODEJOD" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="robots" content="index, follow" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
   </head>
   <body>
     <main class="bg-[url('/img/background.svg')] bg-cover bg-center bg-fixed">
