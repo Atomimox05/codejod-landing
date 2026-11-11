@@ -73,7 +73,9 @@ const organization = {
     <script type="application/ld+json" set:html={JSON.stringify(organization)} />
   </head>
   <body>
-    <main class="bg-[url('/img/background.svg')] bg-cover bg-center bg-fixed">
+    <!-- Capa fija aparte en vez de bg-fixed: se compone una vez y no se repinta en cada scroll -->
+    <div aria-hidden="true" class="fixed inset-0 -z-10 bg-[url('/img/background.webp')] bg-cover bg-center"></div>
+    <main>
       <header>
         <Navbar />
       </header>
@@ -81,7 +83,13 @@ const organization = {
       <Footer />
     </main>
     <script>
-      import "flowbite";
+      // Solo los componentes que usa la página (carousel, collapse, modal), no todo Flowbite
+      import { initCarousels } from "flowbite/lib/esm/components/carousel";
+      import { initCollapses } from "flowbite/lib/esm/components/collapse";
+      import { initModals } from "flowbite/lib/esm/components/modal";
+      initCarousels();
+      initCollapses();
+      initModals();
     </script>
   </body>
 </html>
